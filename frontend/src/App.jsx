@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Row, Col } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   DashboardOutlined,
   FilterOutlined,
   BarChartOutlined,
-  FundOutlined
+  FundOutlined,
+  ClockCircleOutlined
 } from '@ant-design/icons';
 import Dashboard from './components/Dashboard';
 import Screener from './components/Screener';
 import Analysis from './components/Analysis';
 import StockList from './components/StockList';
+import DigitalClock from './components/DigitalClock';
 import './App.css';
 
 const { Header, Content, Sider } = Layout;
@@ -27,6 +29,8 @@ function App() {
         return <Analysis />;
       case 'stocks':
         return <StockList />;
+      case 'clock':
+        return <DigitalClock />;
       default:
         return <Dashboard />;
     }
@@ -62,6 +66,11 @@ function App() {
               key: 'stocks',
               icon: <FundOutlined />,
               label: '股票列表'
+            },
+            {
+              key: 'clock',
+              icon: <ClockCircleOutlined />,
+              label: '数字时钟'
             }
           ]}
         />
@@ -70,7 +79,7 @@ function App() {
         <Header style={{ background: '#fff', paddingLeft: '24px', borderBottom: '1px solid #f0f0f0' }}>
           <h3 style={{ margin: 0 }}>Stock Analysis Platform</h3>
         </Header>
-        <Content style={{ margin: '24px', padding: '24px', background: '#fff', minHeight: 280 }}>
+        <Content style={{ margin: '24px', padding: '24px', background: '#f5f5f5', minHeight: 280 }}>
           {renderContent()}
         </Content>
       </Layout>
