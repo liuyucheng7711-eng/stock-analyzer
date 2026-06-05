@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - DATABASE_URL=postgresql://user:password@db:5432/stock_analyzer
+      - TUSHARE_API_KEY=${TUSHARE_API_KEY}
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app
+    command: gunicorn --bind 0.0.0.0:5000 app:app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+    command: npm start
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=stock_analyzer
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
