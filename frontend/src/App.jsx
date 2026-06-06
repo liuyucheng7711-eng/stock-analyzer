@@ -5,13 +5,15 @@ import {
   FilterOutlined,
   BarChartOutlined,
   FundOutlined,
-  ClockCircleOutlined
+  ClockCircleOutlined,
+  CheckSquareOutlined
 } from '@ant-design/icons';
 import Dashboard from './components/Dashboard';
 import Screener from './components/Screener';
 import Analysis from './components/Analysis';
 import StockList from './components/StockList';
 import DigitalClock from './components/DigitalClock';
+import TodoList from './components/TodoList';
 import './App.css';
 
 const { Header, Content, Sider } = Layout;
@@ -31,6 +33,8 @@ function App() {
         return <StockList />;
       case 'clock':
         return <DigitalClock />;
+      case 'todo':
+        return <TodoList />;
       default:
         return <Dashboard />;
     }
@@ -71,6 +75,11 @@ function App() {
               key: 'clock',
               icon: <ClockCircleOutlined />,
               label: '数字时钟'
+            },
+            {
+              key: 'todo',
+              icon: <CheckSquareOutlined />,
+              label: '待办清单'
             }
           ]}
         />
