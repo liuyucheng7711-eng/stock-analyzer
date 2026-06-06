@@ -1,0 +1,232 @@
+.todo-list-container {
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  border-radius: 12px;
+}
+
+.todo-header {
+  text-align: center;
+  margin-bottom: 32px;
+  color: #333;
+}
+
+.todo-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1890ff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.todo-header p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Statistics Cards */
+.stats-row {
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.stat-card.completed {
+  border-left: 4px solid #52c41a;
+}
+
+.stat-card.pending {
+  border-left: 4px solid #faad14;
+}
+
+.stat-card.high-priority {
+  border-left: 4px solid #ff4d4f;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Add Todo Card */
+.add-todo-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.add-todo-card:hover {
+  border-color: #1890ff;
+  box-shadow: 0 6px 16px rgba(24, 144, 255, 0.15);
+}
+
+.add-todo-section {
+  padding: 16px 0;
+}
+
+/* Filter Card */
+.filter-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+/* Todo List Card */
+.todo-list-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.todo-item {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px !important;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.todo-item:last-child {
+  border-bottom: none !important;
+}
+
+.todo-item:hover {
+  background-color: #fafafa;
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+}
+
+.todo-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.todo-text {
+  word-break: break-word;
+  max-width: 500px;
+}
+
+.ant-list-item-container {
+  width: 100% !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+  margin-top: 24px;
+}
+
+/* Info Card */
+.info-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
+  border-left: 4px solid #1890ff;
+}
+
+.info-card h3 {
+  color: #1890ff;
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-card li {
+  padding: 10px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.info-card li:before {
+  content: "✓ ";
+  color: #52c41a;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .todo-list-container {
+    padding: 12px;
+  }
+
+  .todo-header h1 {
+    font-size: 28px;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px;
+  }
+
+  .todo-text {
+    max-width: 100%;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-list-container {
+    padding: 8px;
+  }
+
+  .todo-header h1 {
+    font-size: 22px;
+  }
+
+  .todo-header p {
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+}
